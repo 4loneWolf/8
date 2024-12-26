@@ -1,4 +1,7 @@
 class Menu:
+    def __init__(self):
+        text = None
+        frequency = None
 
     def input_data(self):
         self.text = None
@@ -16,8 +19,12 @@ class Menu:
         self.frequency = {char: count / total_chars for char, count in frequency.items()}
 
     def display_menu(self):
-        pass
-    
+        print("Меню:")
+        print("1. Ввод исходных данных")
+        print("2. Выполнение алгоритма")
+        print("3. Вывод результата")
+        print("4. Завершение работы программы")
+
     def print_result(self, frequency):
         print("Частотный анализ текста:")
         for char, freq in frequency.items():
@@ -42,3 +49,13 @@ class Menu:
         else:
             print("Неверный выбор. Попробуйте снова.")
         return True
+
+def main():
+    menu = Menu()
+    while True:
+        menu.display_menu()
+        choice = input("Выберите пункт меню: ")
+        if not menu.handle_choice(choice):
+            break
+
+main()
